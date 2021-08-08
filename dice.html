@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dice Roller</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="d-flex bg-info justify-content-around p-2 border-bottom">
+        <a href="index.html">Car Premium Calculator</a>
+        <a href="dice.html">Dice Roller</a>
+      </div>
+      <div class="d-flex justify-content-around p-2 bg-info border-bottom">
+        <button class="btn btn-success btn-sm" onclick="showModal1()">
+          See Code
+        </button>
+        <button class="btn btn-success btn-sm" onclick="showModal2()">
+          See Code
+        </button>
+      </div>
+    <div class="d-flex justify-content-center p-4 bg-info">
+      <button class="btn btn-success" id="rollBtn">Roll A dice</button>
+    </div>
+    <div class="text-primary text-center bg-info">
+      <h2 id="result"></h2>
+    </div>
+    <div class="bg-info">
+      <h3 class="text-center" id="count"></h3>
+      <h3 class="text-center" id="total"></h3>
+    </div>
+    <div class="modal" tabindex="-1" id="modal1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Code For Car Premium Calculator</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+                onclick="hideModal()"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <!-- <p>Modal body text goes here.</p> -->
+              <pre>
+                  let basePrice = 100;
+                  let premium = basePrice;
+                  if (age <= 25) {
+                    premium += 100;
+                  } else if (age < 35 || age > 25) {
+                    premium += 20;
+                  }
+                  if (acc < 3) {
+                    premium = premium + 40 * acc;
+                  } else if (acc >= 3) {
+                    premium = premium + 60 * acc;
+                  }
+              </pre>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+                onclick="hideModal()"
+              >
+                Close
+              </button>
+              <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal" tabindex="-1" id="modal2">
+        <div class="modal-dialog modal-xl">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Code For Dice Roller Game</h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+                onclick="hideModal()"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <!-- <p>Modal body text goes here.</p> -->
+              <pre>
+  class DiceRoll {
+    constructor() {
+      this.count = 0;
+      this.sum = 0;
+      this.val = 1;
+    }
+    rollOnce() {
+      this.val = Math.floor(Math.random() * 6) + 1;
+      this.sum += this.val;
+      this.count += 1;
+    }
+    setVal() {
+      result.innerHTML = `You rolled ${this.val}`;
+      countEle.innerHTML = `Number of Rolls: ${this.count}`;
+      totalEle.innerHTML = `Total Sum: ${this.sum}`;
+    }
+  }
+  let obj = new DiceRoll();
+  rollBtn.addEventListener("click", () => {
+    obj.rollOnce();
+    if (obj.count > 5) {
+      rollBtn.disabled = true;
+    } else {
+      obj.setVal();
+    }
+  });
+  
+              </pre>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+                onclick="hideModal()"
+              >
+                Close
+              </button>
+              <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            </div>
+          </div>
+        </div>
+        <script src="app.js"></script>
+  </body>
+</html>
